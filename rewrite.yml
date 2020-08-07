@@ -1,0 +1,28 @@
+type: specs.openrewrite.org/v1beta/visitor
+name: petclinic.junit.StaticJUnitAsserts
+visitors:
+  - org.openrewrite.java.UseStaticImport:
+      method: org.junit.Assert assert*(..)
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: petclinic.JUnit
+include:
+  - petclinic.junit.StaticJUnitAsserts
+---
+type: specs.openrewrite.org/v1beta/style
+name: petclinic.Spring
+configure:
+  org.openrewrite.java.style.ImportLayoutStyle:
+    layout:
+      classCountToUseStarImport: 999
+      nameCountToUseStarImport: 999
+      blocks:
+        - import java.*
+        - <blank line>
+        - import javax.*
+        - <blank line>
+        - import all other imports
+        - <blank line>
+        - import org.springframework.*
+        - <blank line>
+        - import static all other imports

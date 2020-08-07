@@ -120,6 +120,19 @@
       <artifactId>spring-boot-devtools</artifactId>
       <scope>runtime</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.openrewrite.plan</groupId>
+      <artifactId>rewrite-spring</artifactId>
+      <version>2.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openrewrite.plan</groupId>
+      <artifactId>rewrite-checkstyle</artifactId>
+      <version>1.1.0</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -145,7 +158,31 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
+        <plugin>
+            <groupId>org.openrewrite.maven</groupId>
+            <artifactId>rewrite-maven-plugin</artifactId>
+            <version>2.1.0-SNAPSHOT</version>
+            <configuration>
+                <activeRecipes>
+                  <recipe>org.openrewrite.java.Spring</recipe>
+                  <recipe>org.openrewrite.java.Mockito</recipe>
+                  <recipe>petclinic.JUnit</recipe>
+                </activeRecipes>
+                <activeStyles>
+                  <style>petclinic.Spring</style>
+                </activeStyles>
+                <metricsUri>LOG</metricsUri>
+                <configLocation>rewrite.yml</configLocation>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>publish</goal>
+                </goals>
+              </execution>
+            </executions>
+        </plugin>
+        <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>cobertura-maven-plugin</artifactId>
         <version>${cobertura.version}</version>
