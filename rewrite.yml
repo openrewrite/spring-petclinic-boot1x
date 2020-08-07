@@ -1,0 +1,10 @@
+type: beta.openrewrite.org/v1/visitor
+name: junit.StaticJUnitAsserts
+visitors:
+  - org.openrewrite.java.UseStaticImport:
+      method: org.junit.Assert assert*(..)
+---
+type: beta.openrewrite.org/v1/profile
+name: junit
+include:
+  - junit.StaticJUnitAsserts

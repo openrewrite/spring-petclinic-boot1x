@@ -145,7 +145,16 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
+        <plugin>
+            <groupId>org.openrewrite.maven</groupId>
+            <artifactId>rewrite-maven-plugin</artifactId>
+            <version>1.2.1</version>
+            <configuration>
+                <activeProfiles>spring,mockito,junit</activeProfiles>
+                <metricsUri>LOG</metricsUri>
+            </configuration>
+        </plugin>
+        <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>cobertura-maven-plugin</artifactId>
         <version>${cobertura.version}</version>
