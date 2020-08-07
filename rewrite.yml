@@ -8,3 +8,22 @@ type: beta.openrewrite.org/v1/profile
 name: junit
 include:
   - junit.StaticJUnitAsserts
+---
+type: beta.openrewrite.org/v1/profile
+name: default
+
+styles:
+  org.openrewrite.java.style.ImportLayoutStyle:
+    layout:
+      classCountToUseStarImport: 999
+      nameCountToUseStarImport: 999
+      blocks:
+        - import java.*
+        - <blank line>
+        - import javax.*
+        - <blank line>
+        - import all other imports
+        - <blank line>
+        - import org.springframework.*
+        - <blank line>
+        - import static all other imports
