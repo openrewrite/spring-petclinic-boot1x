@@ -1,16 +1,16 @@
-type: beta.openrewrite.org/v1/visitor
-name: junit.StaticJUnitAsserts
+type: specs.openrewrite.org/v1beta/visitor
+name: org.openrewrite.junit.StaticJUnitAsserts
 visitors:
   - org.openrewrite.java.UseStaticImport:
       method: org.junit.Assert assert*(..)
 ---
-type: beta.openrewrite.org/v1/profile
-name: junit
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.junit
 include:
   - junit.StaticJUnitAsserts
 ---
-type: beta.openrewrite.org/v1/profile
-name: default
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.importStyle
 
 styles:
   org.openrewrite.java.style.ImportLayoutStyle:
