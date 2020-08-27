@@ -41,7 +41,6 @@ public class PetTypeFormatter implements Formatter<PetType> {
     private final PetRepository pets;
 
 
-    @Autowired
     public PetTypeFormatter(PetRepository pets) {
         this.pets = pets;
     }
