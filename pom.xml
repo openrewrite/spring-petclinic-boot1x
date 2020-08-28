@@ -150,7 +150,10 @@
             <artifactId>rewrite-maven-plugin</artifactId>
             <version>2.0.0-SNAPSHOT</version>
             <configuration>
-                <activeRecipes>org.openrewrite.spring,org.openrewrite.mockito,org.openrewrite.spring-boot2-migration</activeRecipes>
+                <activeRecipes>
+                  <recipe>org.openrewrite.spring</recipe>
+                  <recipe>org.openrewrite.mockito</recipe>
+                </activeRecipes>
                 <metricsUri>LOG</metricsUri>
                 <configLocation>rewrite.yml</configLocation>
             </configuration>
