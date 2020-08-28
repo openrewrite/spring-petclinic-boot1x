@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Profile;
 class CacheConfig {
 
     @Bean
-    public JCacheManagerCustomizer cacheManagerCustomizer() {
+    JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
             Configuration<Object, Object> cacheConfiguration = createCacheConfiguration();
             cm.createCache("vets", cacheConfiguration);

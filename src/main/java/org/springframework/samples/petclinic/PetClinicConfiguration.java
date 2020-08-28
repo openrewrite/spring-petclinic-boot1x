@@ -1,47 +1,12 @@
 package org.springframework.samples.petclinic;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-
-import org.springframework.beans.factory.annotation.Value;
-
+@ConfigurationProperties("app")
 public class PetClinicConfiguration {
-    @Value("${app.mail.tech-support-contact}")
-    private String techSupportContact;
-    @Value("${app.mail.api-token}")
-    private String apiToken;
-    @Value("${app.mail.oauth-secret}")
-    private String oauthSecret;
-    @Value("${app.name}")
+    private Aws aws;
+    private Mail mail;
     private String name;
-    @Value("${app.port}")
     private String port;
-    @Value("${app.aws.accessKey}")
-    private String accessKey;
-    @Value("${app.aws.secretKey}")
-    private String secretKey;
-
-    public String getTechSupportContact() {
-        return techSupportContact;
-    }
-
-    public void setTechSupportContact(String techSupportContact) {
-        this.techSupportContact = techSupportContact;
-    }
-
-    public String getApiToken() {
-        return apiToken;
-    }
-
-    public void setApiToken(String apiToken) {
-        this.apiToken = apiToken;
-    }
-
-    public String getOauthSecret() {
-        return oauthSecret;
-    }
-
-    public void setOauthSecret(String oauthSecret) {
-        this.oauthSecret = oauthSecret;
-    }
 
     public String getName() {
         return name;
@@ -59,19 +24,73 @@ public class PetClinicConfiguration {
         this.port = port;
     }
 
-    public String getAccessKey() {
-        return accessKey;
+    public Mail getMail() {
+        return mail;
     }
 
-    public void setAccessKey(String accessKey) {
-        this.accessKey = accessKey;
+    public void setMail(Mail value) {
+        mail = value;
     }
 
-    public String getSecretKey() {
-        return secretKey;
+    public static class Mail {
+        private String techSupportContact;
+
+        public String getTechSupportContact() {
+            return techSupportContact;
+        }
+
+        public void setTechSupportContact(String value) {
+            techSupportContact = value;
+        }
+
+        private String apiToken;
+
+        public String getApiToken() {
+            return apiToken;
+        }
+
+        public void setApiToken(String value) {
+            apiToken = value;
+        }
+
+        private String oauthSecret;
+
+        public String getOauthSecret() {
+            return oauthSecret;
+        }
+
+        public void setOauthSecret(String value) {
+            oauthSecret = value;
+        }
     }
 
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
+    public Aws getAws() {
+        return aws;
+    }
+
+    public void setAws(Aws value) {
+        aws = value;
+    }
+
+    public static class Aws {
+        private String accessKey;
+
+        public String getAccessKey() {
+            return accessKey;
+        }
+
+        public void setAccessKey(String value) {
+            accessKey = value;
+        }
+
+        private String secretKey;
+
+        public String getSecretKey() {
+            return secretKey;
+        }
+
+        public void setSecretKey(String value) {
+            secretKey = value;
+        }
     }
 }
