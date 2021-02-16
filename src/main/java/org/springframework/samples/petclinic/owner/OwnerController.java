@@ -27,6 +27,8 @@ import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Map;
 
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+
 /**
  * @author Juergen Hoeller
  * @author Ken Krebs
@@ -50,6 +52,11 @@ class OwnerController {
         dataBinder.setDisallowedFields("id");
     }
 
+    @RequestMapping(value = "/owners/what")
+    public String getWhat() {
+        return "multipe method types omg";
+    }
+
     @GetMapping("/owners/new")
     public String initCreationForm(Map<String, Object> model) {
         Owner owner = new Owner();
@@ -57,7 +64,7 @@ class OwnerController {
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
-    @PostMapping("/owners/new")
+    @RequestMapping(value = "/owners/new", method = {POST, PUT})
     public String processCreationForm(@Valid Owner owner, BindingResult result) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
@@ -105,7 +112,7 @@ class OwnerController {
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
-    @RequestMapping(value = "/owners/{ownerId}/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/owners/{ownerId}/edit", method = POST)
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable("ownerId") int ownerId) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
