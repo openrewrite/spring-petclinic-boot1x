@@ -127,15 +127,21 @@
       <plugin>
         <groupId>org.openrewrite.maven</groupId>
         <artifactId>rewrite-maven-plugin</artifactId>
-        <version>3.0.1-rc.2-SNAPSHOT</version>
+        <version>3.0.0-rc.2</version>
         <configuration>
             <activeRecipes>org.openrewrite.spring.boot2</activeRecipes>
+            <activeRecipes>org.openrewrite.java.testing.JUnit5Migration</activeRecipes>
         </configuration>
         <dependencies>
             <dependency>
                 <groupId>org.openrewrite.recipe</groupId>
                 <artifactId>rewrite-spring</artifactId>
                 <version>3.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openrewrite.recipe</groupId>
+                <artifactId>rewrite-testing-frameworks</artifactId>
+                <version>0.8.1</version>
             </dependency>
         </dependencies>
       </plugin>
