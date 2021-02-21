@@ -130,7 +130,9 @@
         <version>3.0.1-rc.3-SNAPSHOT</version>
         <configuration>
             <activeRecipes>
-                org.openrewrite.spring.boot2,org.openrewrite.java.testing.JUnit5Migration,org.openrewrite.java.testing.Mockito1to3Migration
+                <recipe>org.openrewrite.java.spring.boot2</recipe>
+                <recipe>org.openrewrite.java.testing.Mockito1to3Migration</recipe>
+                <recipe>org.openrewrite.java.testing.JUnit5Migration</recipe>
             </activeRecipes>
         </configuration>
         <dependencies>
