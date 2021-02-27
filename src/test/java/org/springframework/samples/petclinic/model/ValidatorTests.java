@@ -1,16 +1,15 @@
 package org.springframework.samples.petclinic.model;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Locale;
-import java.util.Set;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
+import java.util.Locale;
+import java.util.Set;
 
-import org.junit.Test;
-import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Michael Isvy
@@ -26,7 +25,7 @@ public class ValidatorTests {
     }
 
     @Test
-    public void shouldNotValidateWhenFirstNameEmpty() {
+    void shouldNotValidateWhenFirstNameEmpty() {
 
         LocaleContextHolder.setLocale(Locale.ENGLISH);
         Person person = new Person();

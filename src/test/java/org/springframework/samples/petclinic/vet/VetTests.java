@@ -15,10 +15,10 @@
  */
 package org.springframework.samples.petclinic.vet;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.util.SerializationUtils;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Dave Syer
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
 public class VetTests {
 
     @Test
-    public void testSerialization() {
+    void testSerialization() {
         Vet vet = new Vet();
         vet.setFirstName("Zaphod");
         vet.setLastName("Beeblebrox");
