@@ -57,10 +57,10 @@ public class VetControllerTests {
 
     @Test
     public void testShowResourcesVetList() throws Exception {
-        ResultActions actions = mockMvc.perform(get("/vets.json").accept(MediaType.APPLICATION_JSON))
+        ResultActions actions = mockMvc.perform(get("/vets.json")
+            .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk());
-        actions.andExpect(content().contentType("application/json;charset=UTF-8"))
-            .andExpect(jsonPath("$.vetList[0].id").value(1));
+        actions.andExpect(jsonPath("$.vetList[0].id").value(1));
     }
 
     @Test

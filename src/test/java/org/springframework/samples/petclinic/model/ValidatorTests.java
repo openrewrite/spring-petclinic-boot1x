@@ -1,6 +1,7 @@
 package org.springframework.samples.petclinic.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Locale;
 import java.util.Set;
@@ -39,7 +40,7 @@ public class ValidatorTests {
         assertEquals(1, constraintViolations.size());
         ConstraintViolation<Person> violation = constraintViolations.iterator().next();
         assertEquals("firstName", violation.getPropertyPath().toString());
-        assertEquals("may not be empty", violation.getMessage());
+        assertTrue(violation.getMessage().endsWith("not be empty"));
     }
 
 }
