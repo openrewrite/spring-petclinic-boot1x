@@ -1,0 +1,22 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.yaml.N3Configuration
+displayName: Integrer N3
+tags:
+  - N3
+  - Oauth2
+recipeList:
+  - org.openrewrite.yaml.InsertYaml:
+      key: /
+      yaml: |-
+        n3:
+          webclient:
+            configurations:
+              qualifier:
+                baseurl: http://localhost:8080
+                oauth2:
+                  clientOAuth2: UPDATE
+                  grantType: UPDATE
+  - org.openrewrite.yaml.CoalesceProperties
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: java.util.TreeMap
+      newFullyQualifiedTypeName: java.util.HashMap

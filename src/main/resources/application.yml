@@ -1,0 +1,6 @@
+database: hsqldb
+spring:
+  thymeleaf.mode: HTML
+  datasource:
+    schema: 'classpath*:db/${database}/schema.sql'
+    data: 'classpath*:db/${database}/data.sql'

@@ -122,8 +122,29 @@
     </dependency>
   </dependencies>
 
+  <repositories>
+    <repository>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>repo</name>
+        <url>http://localhost:8081/artifactory/m2-mirror</url>
+    </repository>
+  </repositories>
+
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.openrewrite.maven</groupId>
+        <artifactId>rewrite-maven-plugin</artifactId>
+        <version>4.2.3-SNAPSHOT</version>
+        <configuration>
+          <activeRecipes>
+            <recipe>org.openrewrite.yaml.N3Configuration</recipe>
+          </activeRecipes>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>

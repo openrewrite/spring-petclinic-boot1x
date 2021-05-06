@@ -16,6 +16,9 @@
 
 package org.springframework.samples.petclinic;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -29,6 +32,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PetClinicApplication {
 
     public static void main(String[] args) throws Exception {
+        Map<Integer, Integer> m = new TreeMap<>();
         SpringApplication.run(PetClinicApplication.class, args);
     }
 
