@@ -59,8 +59,8 @@ public class PetTypeFormatterTests {
      *
      * @return {@link Collection} of {@link PetType}
      */
-    private List<PetType> makePetTypes() {
-        List<PetType> petTypes = new ArrayList<>();
+    private /*~~>*/List<PetType> makePetTypes() {
+        /*~~>*/List<PetType> petTypes = new ArrayList<>();
         petTypes.add(new PetType(){
             {
                 setName("Dog");

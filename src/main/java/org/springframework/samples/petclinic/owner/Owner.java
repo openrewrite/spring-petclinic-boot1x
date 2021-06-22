@@ -97,8 +97,8 @@ public class Owner extends Person {
         this.pets = pets;
     }
 
-    public List<Pet> getPets() {
-        List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
+    public /*~~>*/List<Pet> getPets() {
+        /*~~>*/List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
         PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedPets);
     }
